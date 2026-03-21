@@ -1,20 +1,16 @@
+
+
+
 package com.apigateway.gatewayservice.config;
-
-
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.beans.factory.annotation.Value;
 import lombok.Getter;
 
-/**
- * Gateway Configuration
- * Centralized place for all gateway settings
- */
 @Configuration
 @Getter
 public class GatewayConfig {
 
-    // Rate Limiting Settings
     @Value("${gateway.ratelimit.requests-per-minute:60}")
     private int requestsPerMinute;
 
@@ -24,21 +20,18 @@ public class GatewayConfig {
     @Value("${gateway.ratelimit.window-size-seconds:60}")
     private int windowSizeSeconds;
 
-    // Request Analysis Settings
     @Value("${gateway.analysis.enabled:true}")
     private boolean analysisEnabled;
 
-    @Value("${gateway.analysis.suspicious-user-agents}")
-    private String[] suspiciousUserAgents = {
-            "python-requests",
-            "curl",
-            "wget",
-            "scrapy",
-            "bot",
-            "spider"
-    };
+    // ⭐ FIXED: Split comma-separated string into array
+    @Value("${gateway.analysis.suspicious-user-agents:python-requests,curl,wget,scrapy,bot,spider,crawler}")
+    private String suspiciousUserAgentsString;
 
-    // Logging
     @Value("${gateway.logging.verbose:false}")
     private boolean verboseLogging;
+
+    // ⭐ NEW: Method to get array from string
+    public String[] getSuspiciousUserAgents() {
+        return suspiciousUserAgentsString.split(",");
+    }
 }

@@ -10,10 +10,7 @@ import org.springframework.web.server.ServerWebExchange;
  */
 public class IPExtractor {
 
-    /**
-     * Extract real client IP from request
-     * Checks multiple headers in order of priority
-     */
+
     public static String extractClientIP(ServerWebExchange exchange) {
 
         // Priority 1: X-Forwarded-For (standard for proxies)
@@ -55,9 +52,7 @@ public class IPExtractor {
         return "unknown";
     }
 
-    /**
-     * Basic IP validation
-     */
+
     private static boolean isValidIP(String ip) {
         if (ip == null || ip.isEmpty()) {
             return false;

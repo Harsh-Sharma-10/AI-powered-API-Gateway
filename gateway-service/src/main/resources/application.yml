@@ -23,29 +23,18 @@ spring:
           predicates:
             - Path=/health
 
-# ???????????????????????????????????????????????????????????
-# Gateway Configuration (NEW!)
-# ???????????????????????????????????????????????????????????
+# Gateway Configuration
 gateway:
-  # Rate Limiting Settings
   ratelimit:
-    requests-per-minute: 60        # Normal user limit
-    burst-threshold: 100           # Absolute maximum
-    window-size-seconds: 60        # Sliding window size
+    requests-per-minute: 60
+    burst-threshold: 100
+    window-size-seconds: 60
 
-  # Request Analysis
   analysis:
     enabled: true
-    suspicious-user-agents:
-      - python-requests
-      - curl
-      - wget
-      - scrapy
-      - bot
-      - spider
-      - crawler
+    # CRITICAL: Array format in YAML - use square brackets!
+    suspicious-user-agents: python-requests,curl,wget,scrapy,bot,spider,crawler
 
-  # Logging
   logging:
     verbose: true
 
@@ -53,7 +42,7 @@ gateway:
 logging:
   level:
     root: INFO
-    com.apigateway.gateway: DEBUG
+    com.apigateway.gatewayservice: DEBUG
     org.springframework.cloud.gateway: INFO
   pattern:
     console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"

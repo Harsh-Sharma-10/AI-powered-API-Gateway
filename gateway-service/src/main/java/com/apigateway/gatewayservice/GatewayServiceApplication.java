@@ -8,6 +8,15 @@ public class GatewayServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayServiceApplication.class, args);
+        // Print startup banner
+        System.out.println("╔════════════════════════════════════════════════════════╗");
+        System.out.println("║                                                        ║");
+        System.out.println("║   🚀 AI-Powered API Gateway Started Successfully!     ║");
+        System.out.println("║                                                        ║");
+        System.out.println("║   📍 Running on: http://localhost:8080                ║");
+        System.out.println("║   🔍 Ready to analyze requests!                       ║");
+        System.out.println("║                                                        ║");
+        System.out.println("╚════════════════════════════════════════════════════════╝");
 	}
 
 }

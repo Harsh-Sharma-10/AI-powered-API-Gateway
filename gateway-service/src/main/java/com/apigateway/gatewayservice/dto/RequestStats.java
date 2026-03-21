@@ -23,27 +23,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class RequestStats {
      private String ipAddress;
-
      private String userAgent;
 
      private String method;
-
-     private  String endpoint;
-
+     private String endpoint;
      private String requestpath;
 
      private Integer requestcount;
-
      private LocalDateTime timestamp;
-
-    private Long responseTimeMs;
+     private Long responseTimeMs;
 
     private Integer statusCode;
 
+
     private String aiDecision;
-
     private Double aiConfidence;
-
     private String aiReason;
 
     public String getIpAddress() {

@@ -12,9 +12,9 @@ public class BackendServiceApplication {
     // Print startup banner
         System.out.println("╔════════════════════════════════════════════════════════╗");
         System.out.println("║                                                        ║");
-        System.out.println("║   📦 Backend Service Started Successfully!             ║");
+        System.out.println("║    Backend Service Started Successfully!             ║");
         System.out.println("║                                                        ║");
-        System.out.println("║   📍 Running on: http://localhost:8081                 ║");
+        System.out.println("║     Running on: http://localhost:8081                 ║");
         System.out.println("║   🔗 Endpoints:                                       ║");
         System.out.println("║      GET  /api/products                               ║");
         System.out.println("║      GET  /api/users                                  ║");
