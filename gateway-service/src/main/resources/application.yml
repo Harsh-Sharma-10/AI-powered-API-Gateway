@@ -32,11 +32,20 @@ gateway:
 
   analysis:
     enabled: true
-    # CRITICAL: Array format in YAML - use square brackets!
     suspicious-user-agents: python-requests,curl,wget,scrapy,bot,spider,crawler
 
   logging:
     verbose: true
+
+  # ⭐ NEW: AI Service Configuration
+  ai:
+    enabled: true                        # Enable/disable AI integration
+    service-url: http://localhost:8000   # AI service URL
+    endpoint: /predict                   # AI prediction endpoint
+    timeout-ms: 2000                     # Request timeout (2 seconds)
+    fallback-on-error: ALLOW            # What to do if AI service fails (ALLOW or BLOCK)
+    use-cache: true                      # Cache AI decisions
+    cache-ttl-seconds: 60               # Cache duration
 
 # Logging Configuration
 logging:

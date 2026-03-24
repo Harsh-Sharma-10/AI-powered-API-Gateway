@@ -1,0 +1,15 @@
+### Test 1: Normal Request (Should ALLOW - AI + Gateway)
+GET http://localhost:8080/api/products
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+
+### Test 2: Bot Request (Should BLOCK - AI detects bot)
+GET http://localhost:8080/api/products
+User-Agent: python-requests/2.28.1
+
+### Test 3: High Frequency (Should BLOCK - AI detects high frequency)
+# Run this 60+ times quickly to trigger
+GET http://localhost:8080/api/products
+User-Agent: Mozilla/5.0
+
+### Test 4: Health Check (Should always work)
+GET http://localhost:8080/health
